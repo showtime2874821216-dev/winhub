@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="run">运行</string>
+    <string name="edit">编辑</string>
+    <string name="remove">移除</string>
+    <string name="add">添加</string>
+    <string name="containers">容器管理</string>
+    <string name="input_controls">虚拟按键</string>
+    <string name="edit_container">编辑容器</string>
+    <string name="keyboard">弹出键盘</string>
+    <string name="binding_filter_all">全部</string>
+    <string name="binding_filter_keyboard">弹出键盘</string>
+    <string name="binding_filter_gamepad">游戏手柄</string>
+    <string name="exit">退出</string>
+    <string name="profile">按键配置</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="expandable_layout">界面布局</string>
+    <string name="enabled">已开启</string>
+    <string name="disabled">已关闭</string>
+    <string name="container">容器</string>
+    <string name="screen_size">分辨率</string>
+    <string name="help_screen_size">
+        &lt;b&gt;分辨率&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+        The resolution the game runs at. Lower is faster but less sharp; higher is sharper but heavier. The picture is then scaled to fit your screen, and the Scaling mode in the game side menu (for example SGSR HQ) decides how.&lt;br /&gt;&lt;br /&gt;
+        New containers start at a size that matches your screen shape — 1280x720 on 16:9 and wider screens, 1280x800 on 16:10 and 1280x960 on 4:3 — so the picture can fill the screen.&lt;br /&gt;&lt;br /&gt;
+        &lt;b&gt;Examples:&lt;/b&gt; a heavy game stutters → try 960x544 or 854x480 with SGSR HQ. A light game on a 1080p screen → 1920x1080 for full sharpness. A 4:3 handheld → 1280x960.
+    </string>
+    <string name="environment_variables">环境变量</string>
+    <string name="processor_affinity">CPU 核心绑定</string>
+    <string name="wine_configuration">Wine 配置</string>
+    <string name="gpu_name">伪装显卡型号</string>
+    <string name="offscreen_rendering_mode">离屏渲染模式</string>
+    <string name="strict_shader_math">严格着色器精度</string>
+    <string name="video_memory_size">显存大小</string>
+    <string name="show_fps">显示帧率 Counter</string>
+    <string name="none">无</string>
+    <string name="duplicate">复制</string>
+    <string name="about">关于</string>
+    <string name="graphics_driver">显卡驱动</string>
+    <string name="audio_driver">音频驱动</string>
+    <string name="dxwrapper">DirectX 转译层</string>
+    <string name="directx">DirectX 组件</string>
+    <string name="settings">系统设置</string>
+    <string name="drives">磁盘映射</string>
+    <string name="wine_version">Wine / Proton 版本</string>
+    <string name="advanced">高级设置</string>
+    <string name="system">系统</string>
+    <string name="box64_preset">Box64 预设</string>
+    <string name="task_manager">任务管理器</string>
+    <string name="memory">运行内存</string>
+    <string name="stability">稳定优先</string>
+    <string name="compatibility">兼容优先</string>
+    <string name="intermediate">均衡模式</string>
+    <string name="performance">性能优先</string>
+    <string name="help_sync_mode">
+        &lt;b&gt;Sync&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+        Windows games constantly tell their threads to wait for each other (“wait until this is loaded”, “signal when the frame is ready”). Wine has several ways to handle that; the faster ones mean less stutter and CPU overhead. This setting picks which one the game uses. Options the selected compatibility layer can\'t do are greyed out.&lt;br /&gt;&lt;br /&gt;
+        &lt;b&gt;esync&lt;/b&gt; — the default. Wine handles most waits with Linux event files instead of asking its background server each time. Fast and well tested.&lt;br /&gt;&lt;br /&gt;
+        &lt;b&gt;ntsync&lt;/b&gt; — copies how Windows itself does it, so it is the most accurate and also fast. Only on layers built with it. New: try it per game. If it can\'t start, the game falls back to esync automatically.&lt;br /&gt;&lt;br /&gt;
+        &lt;b&gt;fsync&lt;/b&gt; — a faster method used on Linux PCs (Steam Deck), built on a Linux feature Android blocks for apps. Always greyed out here; it cannot work on Android.&lt;br /&gt;&lt;br /&gt;
+        &lt;b&gt;wineserver&lt;/b&gt; — no shortcut at all: every wait goes through Wine\'s background server. Slowest and heaviest on the CPU, but the most compatible — use it when a game hangs, stutters or misbehaves on the others.&lt;br /&gt;&lt;br /&gt;
+        Game settings follow the container unless you pick something else for that game.&lt;br /&gt;&lt;br /&gt;
+        &lt;i&gt;Sets at launch: esync → WINEESYNC=1 · ntsync → WINENTSYNC=1 + WINEESYNC=1 · wineserver → WINEESYNC=0. Any of these typed into 环境变量 is replaced by this setting.&lt;/i&gt;
+    </string>
+    <string name="help_opengl_settings">
+        &lt;b&gt;OpenGL settings&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+        &lt;b&gt;Fast&lt;/b&gt; — sends an OpenGL game\'s frames straight to the screen through Vulkan (the route DXVK games take) instead of copying every frame back first. Several times faster, and it also speeds up DirectDraw and older Direct3D games through WineD3D. It works with any Wine layer: layers with Wine\'s EGL backend go through EGL, everything else (older Wine, and every x86-64 layer) through GLX. It needs a Turnip graphics driver; without one it is greyed and games use the old path. On by default; turn it off for a game that shows a black screen, crashes or draws wrongly.&lt;br /&gt;&lt;br /&gt;
+        &lt;b&gt;显示帧率&lt;/b&gt; — Mesa\'s frames-per-second counter in the top-left corner of OpenGL games. DXVK games don\'t show it. Off by default.&lt;br /&gt;&lt;br /&gt;
+        &lt;b&gt;Vsync off&lt;/b&gt; — lets OpenGL games run above the screen\'s refresh rate instead of waiting for each refresh. You may see tearing. Off by default.&lt;br /&gt;&lt;br /&gt;
+        None of these speed up game time: a very old game that ties its speed to the frame rate can run too fast — cap it with the FPS limiter.&lt;br /&gt;&lt;br /&gt;
+        &lt;b&gt;Auto&lt;/b&gt; (game settings) — follows the container\'s setting; On or Off applies to that game only. Changes take effect the next time the game starts.&lt;br /&gt;&lt;br /&gt;
+        &lt;i&gt;Sets at launch: Fast → the bundled OpenGL libraries with Zink, plus WINE_USE_EGL=1 on the EGL route or the X server\'s GLX on the GLX route (WINHUB_X11_EGL=0 turns it off, WINHUB_X11_EGL=1 forces EGL, WINHUB_X11_GLX=1 forces GLX) · 显示帧率 → GALLIUM_HUD=fps · Vsync off → vblank_mode=0. A GALLIUM_HUD or vblank_mode you typed into 环境变量 is kept.&lt;/i&gt;
+    </string>
+    <string name="help_graphics_driver_version">
+        &lt;b&gt;显卡驱动 Version&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+        Which build of the GPU driver (Turnip / the Vulkan wrapper) to use for this game. Newer builds often fix bugs or add speed, but a specific game can run better on an older one. If a game glitches or won\'t start, try a different version here. Manage and import more drivers with the cloud button.
+    </string>
+    <string name="help_renderer_driver">
+        &lt;b&gt;Renderer Driver&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+        Which Vulkan driver the on-screen &lt;b&gt;compositor&lt;/b&gt; runs on — the layer that takes your game\'s finished frame and puts it on screen. This is &lt;b&gt;not&lt;/b&gt; where your game renders; that\'s the top-level &lt;b&gt;显卡驱动&lt;/b&gt;.&lt;br /&gt;&lt;br /&gt;
+        &lt;b&gt;System&lt;/b&gt; (default) uses Android\'s own Vulkan driver — the safe, always-compatible choice. Picking an installed &lt;b&gt;Turnip&lt;/b&gt; points the compositor at that build instead. It mostly affects present/compatibility behaviour, not your game\'s FPS (the compositor isn\'t where rendering happens).&lt;br /&gt;&lt;br /&gt;
+        Leave it on &lt;b&gt;System&lt;/b&gt; unless you know you need otherwise: a Turnip compositor can black-screen on builds whose window-system support doesn\'t match your device.
+    </string>
+    <string name="help_frame_generation">
+        &lt;b&gt;帧生成&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+        Adds made-up frames between the ones your game draws, so motion looks smoother. It can\'t make the game respond faster, and it adds a little input delay. Two engines:&lt;br /&gt;&lt;br /&gt;
+        &lt;b&gt;Win-FG Native&lt;/b&gt; — built in, nothing to buy or import. Always 2×.&lt;br /&gt;
+        &lt;b&gt;LSFG Native&lt;/b&gt; — Lossless Scaling\'s frame generation. Needs your own Lossless.dll, imported at the bottom of Settings. 2×, 3× or 4×.&lt;br /&gt;&lt;br /&gt;
+        Both need the Vulkan renderer. LSFG Native also needs a &lt;b&gt;Renderer Driver&lt;/b&gt; with Vulkan 1.3 — on older Adreno GPUs, pick a Turnip driver there. If something is missing, the game\'s side menu says what and how to fix it.&lt;br /&gt;&lt;br /&gt;
+        &lt;b&gt;Getting it right:&lt;/b&gt; in the game\'s side menu, set &lt;b&gt;Max FPS&lt;/b&gt; to a number the game can always hold, then pick a multiplier so Max FPS × multiplier fits your screen\'s refresh rate (for example 48 × 3 = 144 Hz). Going over causes stutter and lag; the side menu warns you and offers a fix. &lt;b&gt;Auto (match FPS)&lt;/b&gt; turns on while frame generation runs, fitting the screen to your numbers — turn it off there if you prefer.&lt;br /&gt;&lt;br /&gt;
+        Frame generation starts Off each launch; turn it on from the side menu. It\'s still new: if a game looks worse with it, leave it off for that game.
+    </string>
+    <string name="help_audio_driver">
+        &lt;b&gt;音频驱动&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+        How the game\'s sound reaches Android. &lt;b&gt;PulseAudio&lt;/b&gt; is the default — a capable sound server that works for most games and voice features. &lt;b&gt;ALSA&lt;/b&gt; is a lighter, low-overhead alternative. &lt;b&gt;DirectAudio (Experimental)&lt;/b&gt; sends sound straight to Android with no server in between (lowest latency), but it\'s new — see its warning. Switch drivers if a game has no sound or crackles.
+    </string>
+    <string name="theme">主题外观</string>
+    <string name="logs">运行日志</string>
+    <string name="export">导出</string>
+    <string name="general">常规设置</string>
+    <string name="startup_selection">启动模式</string>
+    <string name="vibration">手柄震动</string>
+    <string name="vibration_mode_off">关</string>
+    <string name="vibration_mode_controller">手柄</string>
+    <string name="gyro_sensitivity_label">灵敏度</string>
+    <string name="gyro_drawer_title">陀螺仪体感</string>
+    <string name="gyro_drawer_enabled">已开启</string>
+    <string name="all">全部</string>
+    <string name="contents">运行库组件</string>
+    <string name="select_graphics_driver_version">Select 显卡驱动 Version:</string>
+    <string name="graphics_driver_version">显卡驱动 Version</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+    <string name="help_xinput">
+        If your game utilizes the &lt;i&gt;&lt;b&gt;XInput API&lt;/b&gt;&lt;/i&gt; for game controller support, please enable this option.&lt;br/&gt;&lt;br/&gt;
+        This option will affect both &lt;i&gt;&lt;b&gt;virtual&lt;/b&gt;&lt;/i&gt; (provided by 虚拟按键) and &lt;i&gt;&lt;b&gt;physical&lt;/b&gt;&lt;/i&gt; game controllers.
+    </string>
+    <string name="help_dinput">
+        If your game utilizes the &lt;i&gt;&lt;b&gt;DInput API&lt;/b&gt;&lt;/i&gt; for game controller support, please enable this option.&lt;br/&gt;&lt;br/&gt;
+        This option will affect both &lt;i&gt;&lt;b&gt;virtual&lt;/b&gt;&lt;/i&gt; (provided by 虚拟按键) and &lt;i&gt;&lt;b&gt;physical&lt;/b&gt;&lt;/i&gt; game controllers.
+    </string>
+    <string name="fullscreen_mode_off_short">关</string>
+    <string name="frame_generation">帧生成 (AI)</string>
+    <string name="frame_generation_off">关</string>
+    <string name="reset">重置</string>
+    <string name="save">保存</string>
+    <string name="exit_button_text">   退出   </string>
+    <string name="notification_exit">退出</string>
+    <string name="pref_kbd">弹出键盘</string>
+    <string name="pref_fullscreen">全屏显示</string>
+    <string name="fexcore_config">FEXCore 转译核心</string>
+    <string name="preset_action_add">添加</string>
+    <string name="preset_action_edit">编辑</string>
+    <string name="preset_action_delete">删除</string>
+    <string name="preset_action_export">导出</string>
+    <string name="preset_action_import">导入</string>
+    <string name="renderer_driver_system">系统</string>
+    <string name="save_backup_next">下一步</string>
+    <string name="wrapper_update">更新</string>
+    <string name="wrapper_reset">重置</string>
+    <string name="wrapper_manager_close">关闭</string>
+    <string name="wrapper_import_subtitle">Add your own wrapper (.tzst). It appears in the 显卡驱动 menu.</string>
+    <string name="wrapper_import_name_message">This name shows up in the 显卡驱动 menu.</string>
+    <string name="wrapper_delete">删除</string>
+    <string name="wrapper_edit_settings_message">Choose which detected settings appear in this wrapper\'s 显卡驱动 options. Unchecked settings are hidden.</string>
+    <string name="wrapper_catalog_download">下载</string>
+    <string name="wrapper_catalog_downloading">正在下载</string>
+    <string name="wrapper_catalog_installing">正在安装</string>
+    <string name="wrapper_catalog_close">完成</string>
+    <string name="help_player_slots">
+        &lt;b&gt;Player Slots&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+        Decides which XInput &lt;b&gt;player&lt;/b&gt; each controller becomes in the game. &lt;b&gt;Player 1&lt;/b&gt; is slot 0, Player 2 is slot 1, and so on.&lt;br /&gt;&lt;br /&gt;
+        &lt;b&gt;Auto&lt;/b&gt; — the controller takes the next free player in the order pads connect (the normal behaviour).&lt;br /&gt;
+        &lt;b&gt;Player 1–4&lt;/b&gt; — pins that controller to that exact player, every launch.&lt;br /&gt;
+        &lt;b&gt;Ignore&lt;/b&gt; — that controller never takes a player slot.&lt;br /&gt;&lt;br /&gt;
+        &lt;b&gt;Shared / combined control&lt;/b&gt; — assign TWO (or more) devices to the SAME player and they BOTH drive that player at once (for example the on-screen controls plus a physical pad). Their inputs are combined, not fought over.&lt;br /&gt;&lt;br /&gt;
+        &lt;b&gt;On-screen controls&lt;/b&gt; — the touch pad can be pinned to any player too. A physical pad connected BEFORE launch takes priority in the connect order. The On-screen priority setting decides what happens when a pad connects mid-game: &lt;b&gt;Keep&lt;/b&gt; leaves the touch pad where it is, &lt;b&gt;Yield&lt;/b&gt; hands Player 1 to the pad and moves the touch pad up, &lt;b&gt;Share&lt;/b&gt; makes the pad share the touch pad\'s player.&lt;br /&gt;&lt;br /&gt;
+        &lt;b&gt;Reset Input&lt;/b&gt; (in-game side menu) rebuilds the controller connection without restarting the game.&lt;br /&gt;&lt;br /&gt;
+        Changes made here (out of game) apply on the game\'s &lt;b&gt;next launch&lt;/b&gt;; the in-game side menu changes players live. The app-drawer 虚拟按键 copy of this sets the default for &lt;b&gt;newly-created&lt;/b&gt; containers.
+    </string>
+    <string name="gog_login_close">关闭</string>
+    <string name="help_linux_screen_size">
+        &lt;b&gt;分辨率&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+        The resolution the Linux session renders at. It sets the size of gamescope\'s output, so it reaches &lt;b&gt;both&lt;/b&gt; the Steam client and every game the client launches - Big Picture and the games inside it all draw into that one output. A smaller size is less work for the GPU and is scaled up to fill your screen.
+    </string>
+    <string name="help_linux_env_vars">
+        &lt;b&gt;环境变量&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+        Extra settings handed to the Linux session when it starts. They reach &lt;b&gt;both&lt;/b&gt; the Steam client and the games the client launches: the client is started with them, and every game inherits them through Steam and Proton. A variable set here overrides the same name coming from the FEXCore preset.
+    </string>
+    <string name="help_linux_fexcore_preset">
+        &lt;b&gt;FEXCore Preset&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+        Tunes FEX, which translates a game\'s x86 code to ARM. It is for the &lt;b&gt;games the client launches&lt;/b&gt; only: those run x86 code inside Proton, while the Steam client is a native ARM64 build and never goes through FEX. The preset is handed to the session at launch, and anything you set in 环境变量 overrides it.
+    </string>
+    <string name="help_linux_gyro_enabled">
+        &lt;b&gt;Motion Aim&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+        Turns tilting the device into aiming or pointer movement. It reaches &lt;b&gt;both&lt;/b&gt; the Steam client and the games the client launches, because the motion is fed in as controller or mouse input for the whole session. The finer numbers - deadzone and smoothing - live in 容器设置.
+    </string>
+    <string name="help_linux_audio_driver">
+        &lt;b&gt;音频驱动&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+        How sound leaves the session and reaches Android. On this path only &lt;b&gt;PulseAudio&lt;/b&gt; carries sound, and it carries it for &lt;b&gt;both&lt;/b&gt; the Steam client and the games the client launches. Every other value leaves the whole session silent, so keep this on PulseAudio.
+    </string>
+    <string name="social_hub_tab_label">社区配置</string>
+    <string name="social_hub_help_title">社区配置</string>
+    <string name="social_hub_refresh">刷新</string>
+    <string name="social_hub_sign_out">退出登录</string>
+    <string name="social_hub_delete">删除</string>
+    <string name="social_hub_subtab_profile">按键配置</string>
+    <string name="social_hub_configs_import">导入</string>
+    <string name="social_hub_configs_close">关闭</string>
+    <string name="social_hub_configs_back">返回</string>
+    <string name="social_hub_configs_tab_library">游戏库</string>
+    <string name="xmb_store_back">返回</string>
+</resources>
